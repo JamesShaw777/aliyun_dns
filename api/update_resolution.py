@@ -12,7 +12,7 @@ from alibabacloud_tea_util import models as util_models
 from alibabacloud_tea_util.client import Client as UtilClient
 
 
-class Sample:
+class UpdateResolution:
     def __init__(self):
         pass
 
@@ -36,7 +36,7 @@ class Sample:
         @throws Exception
         """
         # Read credentials from the config file
-        credentials = Sample.get_credentials_from_file('config.txt')
+        credentials = UpdateResolution.get_credentials_from_file('config.txt')
         
         config = open_api_models.Config(
             access_key_id=credentials['access_key_id'],
@@ -47,7 +47,7 @@ class Sample:
 
     @staticmethod
     def update_domain_record(record_id: str, rr: str, record_type: str, value: str, line: str) -> None:
-        client = Sample.create_client()
+        client = UpdateResolution.create_client()
         update_domain_record_request = alidns_20150109_models.UpdateDomainRecordRequest(
             record_id=record_id,
             rr=rr,
@@ -65,7 +65,7 @@ class Sample:
 
     @staticmethod
     async def update_domain_record_async(record_id: str, rr: str, record_type: str, value: str, line: str) -> None:
-        client = Sample.create_client()
+        client = UpdateResolution.create_client()
         update_domain_record_request = alidns_20150109_models.UpdateDomainRecordRequest(
             record_id=record_id,
             rr=rr,
@@ -84,11 +84,11 @@ class Sample:
 
 if __name__ == '__main__':
     if len(sys.argv) != 6:
-        print("Usage: python sample.py <record_id> <rr> <type> <value> <line>")
+        print("Usage: python UpdateResolution.py <record_id> <rr> <type> <value> <line>")
     else:
         record_id = sys.argv[1]
         rr = sys.argv[2]
         record_type = sys.argv[3]
         value = sys.argv[4]
         line = sys.argv[5]
-        Sample.update_domain_record(record_id, rr, record_type, value, line)
+        UpdateResolution.update_domain_record(record_id, rr, record_type, value, line)

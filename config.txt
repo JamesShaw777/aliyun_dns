@@ -1,2 +1,4 @@
-access_key_id='Your_ali_key_id',
+access_key_id='your_ali_key_id'
 access_key_secret='Your_ali_key_secret'
+domain_name='domain_name'
+type='resolution_type'
